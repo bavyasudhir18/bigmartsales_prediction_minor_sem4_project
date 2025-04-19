@@ -1,0 +1,41 @@
+{% extends 'sales/base.html' %}
+
+{% block content %}
+<h2>Train Data List (First 100 Rows)</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Weight</th>
+            <th>Fat Content</th>
+            <th>Visibility</th>
+            <th>Type</th>
+            <th>MRP</th>
+            <th>Outlet ID</th>
+            <th>Year</th>
+            <th>Size</th>
+            <th>Location</th>
+            <th>Outlet Type</th>
+            <th>Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.Item_Identifier }}</td>
+            <td>{{ row.Item_Weight }}</td>
+            <td>{{ row.Item_Fat_Content }}</td>
+            <td>{{ row.Item_Visibility }}</td>
+            <td>{{ row.Item_Type }}</td>
+            <td>{{ row.Item_MRP }}</td>
+            <td>{{ row.Outlet_Identifier }}</td>
+            <td>{{ row.Outlet_Establishment_Year }}</td>
+            <td>{{ row.Outlet_Size }}</td>
+            <td>{{ row.Outlet_Location_Type }}</td>
+            <td>{{ row.Outlet_Type }}</td>
+            <td>{{ row.Item_Outlet_Sales }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'sales/base.html' %}
+{% block content %}
+    <h2>Sales Data</h2>
+    <a href="{% url 'salesdata_add' %}">Add Record</a>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Item</th><th>Sales</th><th>Actions</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.Item_Identifier }}</td>
+            <td>{{ item.Item_Outlet_Sales }}</td>
+            <td>
+                <a href="{% url 'salesdata_edit' item.id %}">Edit</a>
+                <a href="{% url 'salesdata_delete' item.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <div style="margin-top: 15px;">
+        <a href="/">
+            <button type="button">Back</button>
+        </a>
+    </div>
+    
+
+{% endblock %}
