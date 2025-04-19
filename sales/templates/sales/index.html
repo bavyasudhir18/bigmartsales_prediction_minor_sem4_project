@@ -1,17 +1,18 @@
 {% extends 'sales/base.html' %}
 
 {% block content %}
-    <h2>Welcome to the BigMart Sales Prediction Dashboard</h2>
-    <p><a href="{% url 'train_data_list' %}">📄 View Sales Data</a></p>
-    <p><a href="{% url 'salesdata_list' %}">➕ Add / Predict Sales</a></p>
+<h2>Welcome to the BigMart Sales Prediction Dashboard</h2>
+<p><a href="{% url 'train_data_list' %}">📄 View Sales Data</a></p>
+<p><a href="{% url 'salesdata_list' %}">➕ Add / Predict Sales</a></p>
 
-    <h2>Latest News Headlines (via Web Scraping)</h2>
+<h2>📰 Latest News Headlines (via Web Scraping)</h2>
 <ul>
   {% for headline in headlines %}
-    <li>{{ headline }}</li>
+    <li><a href="{{ headline.link }}" target="_blank">{{ headline.title }}</a></li>
   {% empty %}
     <li>No headlines found.</li>
   {% endfor %}
 </ul>
-
 {% endblock %}
+
+

@@ -79,7 +79,15 @@ def train_data_list(request):
 
 from django.shortcuts import render
 from .utils import get_latest_headlines  # if moved to a separate utils.py
-
+'''
 def index(request):
     headlines = get_latest_headlines()
     return render(request, 'sales\index.html', {'headlines': headlines})
+'''
+# sales/views.py
+from django.shortcuts import render
+from .scraper import scrape_latest_sales_news  # Import the function
+
+def index(request):
+    headlines = scrape_latest_sales_news()  # Call the function to get headlines
+    return render(request, 'sales/index.html', {'headlines': headlines})
